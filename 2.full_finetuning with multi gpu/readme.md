@@ -109,3 +109,11 @@ python 3_test.py --model_name collator_checkpoint-297 --num_samples 50
 python 3_test.py --model_name without_col_checkpoint-127 --num_samples 50
 python 3_test.py --model_name without_col_checkpoint-254 --num_samples 50
 ```
+# openai_test.py
+- requirements_for_gptEval.txt 설치 하고
+- python 4_openai_test.py 하면
+- sample 별로 평가가 나옴. (qa_evaluation_results 폴더에 생성)
+- 내가 prompt랑 class Evaluation(BaseModel): 수정해서 평가 항목 추가할 수 있음. 6은 내가 추가 한거임. 
+
+# 샘플별로 평가한 것을 종합적으로 평가 -> 모델평가 
+5_score_notebook.ipynb 실행 : qa_evaluation_results 폴더에 있는 값 가져와서 계산 
