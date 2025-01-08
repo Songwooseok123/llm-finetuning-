@@ -73,3 +73,9 @@ if __name__ == "__main__":
   - metadata: 필드에 대한 부가 정보
 
 **"yaml 파일에서 파라미터 필드 정의하고, py 파일에서 class ScriptArgument에 필드 만들고, TrlParser로 script_args 만들어서 가져다가 쓰면됨."**
+
+## training_function블록 
+- task에 따라서 collator 신경쓰기
+  - 아근데, collator 쓰니까 packing을 못하네
+  - packing =True를 지우니까, step 수가 좀 늘어남.
+    - SFTTrainer supports example packing, where multiple short examples are packed in the same input sequence to increase training efficiency
