@@ -23,7 +23,7 @@ ACCELERATE_USE_FSDP=1 FSDP_CPU_RAM_EFFICIENT_LOADING=1 torchrun --nproc_per_node
 
 ## 1_train_full_fine_tuning.py
 - 파이썬 파일을 첫줄부터 실행시킨다.
-- if __name__ == "__main__": 직접 파이썬 스크립트를 터미널에서 실행시켰기 때문에 조건문 이하 코드를 각 gpu에서 실행시킨다. 
+- if __name__ == "__main__": 직접 파이썬 스크립트를 터미널에서 실행시켰기 때문에 조건문 이하 코드를 **각 gpu**에서 실행시킨다. 
   - yaml 파일의 하이퍼 파라미터를 TrlParser를 통해 전달해서 script_args, training_args를 만들고, training_function(script_args, training_args)을 실행시킨다.
 ```
 ############ import 블록 ############
@@ -61,3 +61,15 @@ if __name__ == "__main__":
     training_function(script_args, training_args)
 ```
 
+## dataclass 블록에 class ScriptArguments -> 스크립트 인자 정의 
+- **TrlParser**가 --config로 전달된 YAML 파일(0_full_fine_tuning_config.yaml)을 파싱하여,
+- ScriptArguments 및 TrainingArguments 객체에 값을 매핑합니다.
+- 예를 들어, YAML에서 model_name: "meta-llama/Llama-2-7b"라고 정의했다면, script_args.model_name에 자동으로 반영됩니다.
+### @dataclass 데코레이터 
+- 파이썬의 dataclass를 사용해, ScriptArguments라는 클래스를 정의하고, 이 클래스에서 스크립트 실행 시 필요한 매개변수(필드)를 관리한다.
+- dataclass 데코레이터를 안 쓰면, init, repr, eq 등을 직접 작성해야 한다.
+- datclass가 자동으로 위의 것들을 생성해준다.
+- field 함수: 각 필드를 세부적으로 설정하는데 사용. 
+  - metadata: 필드에 대한 부가 정보
+
+**"yaml 파일에서 파라미터 필드 정의하고, py 파일에서 class ScriptArgument에 필드 만들고, TrlParser로 script_args 만들어서 가져다가 쓰면됨."**
