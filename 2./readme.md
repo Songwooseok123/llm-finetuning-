@@ -92,7 +92,9 @@ if __name__ == "__main__":
 | 양호     | 문제발생                 | 어느정도 문제 해결|
 - 위의 표 완성하려면, test.py로 50개씩 돌려서 확인해야겠다. 
 
- 
+## **자 그럼, 앞으로 학습을 할 때, collator가 필요하다면 pad_token을 바꿀지 말지 정해야 겠다. **
+
+
 # wand 
 - train/grad_norm 학습이 안정적으로 진행되고 있는지
 - ![image](https://github.com/user-attachments/assets/07a5d71d-f4e9-4926-8664-b25be3009c03)
