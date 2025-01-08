@@ -100,7 +100,8 @@ if __name__ == "__main__":
 - ![image](https://github.com/user-attachments/assets/07a5d71d-f4e9-4926-8664-b25be3009c03)
 
 
-# 파이썬 스크립트로 한 번에 1000개 추론하기, gpt로 평가하기 스터디 해야함. 
+# 파이썬 스크립트로 한 번에 1000개 추론하기. 
+- test 폴더 만들고, 모델 별로 실행
 ```
 python 3_test.py --model_name checkpoint-148 --num_samples 50
 python 3_test.py --model_name checkpoint-296 --num_samples 50
