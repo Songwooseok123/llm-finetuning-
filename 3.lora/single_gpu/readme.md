@@ -1,3 +1,4 @@
+## single_gpu_train
 ```
-pip install -r requirements.txt
+pip install -r req.txt
 ```
