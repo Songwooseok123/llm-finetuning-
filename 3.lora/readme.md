@@ -51,10 +51,12 @@ peft_config = LoraConfig(
 ## multi_gpu_train
 
 # Inference
-- before_train.ipynb
-- after_train.ipynb
 - pipeline 사용
 - stopping_criteria 사용
+## before_train.ipynb
+## after_train.ipynb
+- adapter와 학습전 base_model을 merge 시켜줘야함 
+
 
 # 평가 
 - openAI로 평가하기
